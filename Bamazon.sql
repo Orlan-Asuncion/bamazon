@@ -1,7 +1,7 @@
---Drops the bamazon_db if it already exists --
-DROP DATABASE IF EXISTS bamazon_db;
+--Drops the BamazonDB if it already exists --
+DROP DATABASE IF EXISTS BamazonDB;
 
---Create a database called bamazon_db.--
+--Create a database called BamazonDB.--
 
 
 CREATE DATABASE BamazonDB;
@@ -19,6 +19,8 @@ CREATE TABLE products(
     primary key (item_id)
 );
 
+
+
 SELECT * FROM products;
 
 INSERT INTO products(product_name, deparment_name, price, stock_quantity)
@@ -30,4 +32,5 @@ VALUES ("Nike golf shoes", "Shoes", 65.00, 10),
         ("Router", "Computer", 65.00, 100),
         ("Puma Shoes", "shoes", 78.99, 8),
         ("Samsung Galaxy Watch","Jewelry" 215.99, 6),
+        ("Bicycle", "Sports", 255.98, 3),
         ("ViewSonic Monitor", "Electronics", 99.99, 10);
