@@ -41,16 +41,16 @@
      console.log("Find Your Product in our Inventory");
      console.log("");
      var table = new Table({
-      head: ['Product Id', 'Product Description', 'Cost'],
-      colWidths: [12, 50, 8],
-      colAligns: ["center", "left", "right"],
+      head: ['Product Id', 'Product Description','Department', 'Cost','Stock Quantity' ],
+      colWidths: [10, 20,15,10, 20],
+      colAligns: [ "left" ],
       style: {
         head:["aqua"],
         compact: true
       }
     });
     for(var i= 0; i < res.length; i++){
-      table.push([res[i].item_id, res[i].product_name, res[i].price]);
+      table.push([res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]);
     }
     console.log(table.toString());
     console.log("");
@@ -84,11 +84,11 @@
            connection.query("SELECT * FROM products WHERE item_id =?", Id, function(err, res){
             var quantity = answer2.quantity;
             if (quantity> res[0].stock_quantity){
-              console.log("Our apololgies we only have"+ res[0].stock_quantity + "items of the product selected");
+              console.log("Our apololgies we only have "+ res[0].stock_quantity + " items of the product selected");
               shopping();
             }else{
               console.log("");
-              console.log(res[0].prooduct_name +"purchased");
+              console.log(res[0].product_name +" purchased");
               console.log(quantity + "qty@$" + res[0].price);
  
               var newQuantity = res[0].stock_quantity - quantity;
@@ -109,7 +109,7 @@
             }
 
 
-           })
+           });
            
          });
 
