@@ -84,7 +84,7 @@
            connection.query("SELECT * FROM products WHERE item_id =?", Id, function(err, res){
             var quantity = answer2.quantity;
             if (quantity> res[0].stock_quantity){
-              console.log("Our apololgies we only have "+ res[0].stock_quantity + " items of the product selected");
+              console.log("Our apologies we only have "+ res[0].stock_quantity + " items of the product selected");
               shopping();
             }else{
               console.log("");
